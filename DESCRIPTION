@@ -1,0 +1,34 @@
+Package: gecko_shinyviz
+Title: Gecko Data Explorer
+Version: 0.0.0.9000
+Authors@R: person('Riinu', 'Pius', email = 'riinu.pius@ed.ac.uk', role = c('cre', 'aut'))
+Description: Gecko Data Explorer.
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny,
+    processx,
+    attempt,
+    DT,
+    glue,
+    htmltools,
+    dplyr,
+    ggplot2,
+    tibble,
+    shinyBS,
+    forcats,
+    pkgload,
+    tidyr,
+    stringr,
+    finalfit
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
