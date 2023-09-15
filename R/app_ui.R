@@ -18,7 +18,7 @@ app_ui <- function(request) {
              
       ),
       column(8,
-             p(paste("Preliminary data updated on", format(Sys.time(), format = "%d-%B %Y"))),
+             p(paste("Preliminary data updated on", updated_date, ":", nrow(appdata), "patient records")),
              mod_render_barplot_ui("render_barplot_ui_1")
       )
     )
