@@ -4,6 +4,21 @@
 #'     DO NOT REMOVE.
 #' @import shiny
 #' @noRd
+#' 
+#' 
+library(dplyr)
+library(pins)
+library(magrittr)
+board = board_connect()
+appdata      = pin_read(board, "rots/gecko_appdata")
+updated_date = pin_meta(board, "rots/gecko_appdata")$created
+
+allvars = appdata %>%
+  finalfit::extract_labels() %>%
+  select(vname, vfill) %$%
+  setNames(as.list(vname), vfill)
+
+
 app_server <- function( input, output, session ) {
   # List the first level callModules here
   library(dplyr)
@@ -11,7 +26,10 @@ app_server <- function( input, output, session ) {
   library(tidyr)
   library(ggplot2)
   library(magrittr)
+  
   r <- reactiveValues()
+
+  
   #data_subset <- callModule(mod_subset_server, "subset_ui_1", r, alldata = appdata)
   #data_subset <- callModule(mod_subset_server, "subset_ui_1", r, alldata = cs_data_app)
   #summary_table <- callModule(mod_subset_server, "subset_ui_1", r, alldata = bmjdata)

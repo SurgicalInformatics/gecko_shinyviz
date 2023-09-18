@@ -1,4 +1,9 @@
 ## code to prepare `appdata` dataset goes here
+
+# Now replaced with pins
+if(FALSE){
+  
+  
 library(tidyverse)
 library(finalfit)
 
@@ -153,9 +158,9 @@ allvars = appdata %>%
 
 
 
-
 updated_date = format(Sys.time(), format = "%d-%B %Y")
 
 usethis::use_data(appdata, overwrite = TRUE)
 usethis::use_data(allvars, overwrite = TRUE)
 usethis::use_data(updated_date, overwrite = TRUE)
+}
