@@ -23,7 +23,7 @@ mod_barplot_ui <- function(id){
                                     wellPanel(style = "background-color: #ffffff;",
                                               selectInput(ns("my_palette"),
                                                           label = "Colour palette:",
-                                                          selected = "Paired",
+                                                          selected = "Set1",
                                                           choices  = palettes,
                                                           multiple = FALSE),
                                               radioButtons(ns("legend_columns"), "Legend columns",

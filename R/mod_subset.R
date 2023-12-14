@@ -19,12 +19,12 @@ mod_subset_ui <- function(id, allvars = allvars, alldata){
                        # A1.1 - explanatory, split, outcome --------------
                        selectInput(ns("explanatory1"),
                                    label    = "Explanatory variable:",
-                                   selected = c("gender"),
+                                   selected = c("wb"),
                                    choices  = allvars,
                                    multiple = FALSE),
                        selectInput(ns("explanatory2"),
                                    label    = "Split by:",
-                                   selected = c("ALL"),
+                                   selected = c("gender"),
                                    choices  = allvars,
                                    multiple = FALSE),
                        selectInput(ns("outcome"),
@@ -41,6 +41,16 @@ mod_subset_ui <- function(id, allvars = allvars, alldata){
                                 checkboxInput(ns("rem_missing_expl2"),   "Split",   TRUE)),
                          column(6,
                                 checkboxInput(ns("rem_missing_outcome"), "Outcome", TRUE))),
+                       fluidRow(column(12,
+                                       h5("Reverse order:"))),
+                       fluidRow(
+                         column(3,
+                                checkboxInput(ns("rev_expl1"),   "Expl.",   TRUE)),
+                         column(3,
+                                checkboxInput(ns("rev_expl2"),   "Split",   TRUE)),
+                         column(6,
+                                checkboxInput(ns("rev_outcome"), "Outcome", TRUE))
+                       ),
                        checkboxInput(ns("subset"),
                                      label = tags$b("Subset dataset"),
                                      value = FALSE),
@@ -72,16 +82,6 @@ mod_subset_ui <- function(id, allvars = allvars, alldata){
                                          column(6,
                                                 checkboxInput(ns("rem_unknown_outcome"), "Outcome", TRUE))),
 
-                                       fluidRow(
-                                         column(3,
-                                                h5('Reverse order:')),
-                                         column(3,
-                                                checkboxInput(ns("rev_expl1"),   "Expl.",   TRUE)),
-                                         column(2,
-                                                checkboxInput(ns("rev_expl2"),   "Split",   TRUE)),
-                                         column(4,
-                                                checkboxInput(ns("rev_outcome"), "Outcome", TRUE))
-                                       ),
                                        
                                        fluidRow( # the percentage label is only plotted for the first factor level (otherwise would start overlapping)
                                          # this "shifter" is useful if you want another level to be the first one on the barplot

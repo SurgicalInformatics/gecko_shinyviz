@@ -5,10 +5,10 @@ account: rots
 server: argoshare.is.ed.ac.uk
 hostUrl: https://argoshare.is.ed.ac.uk/__api__
 appId: 639
-bundleId: 3292
+bundleId: 3310
 url: https://argoshare.is.ed.ac.uk/gecko_shinyviz/
-when: 1695030009.3658
-lastSyncTime: 1695030009.36581
+when: 1695114409.9725
+lastSyncTime: 1695114409.97252
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: data-raw/appdata.R
