@@ -88,7 +88,7 @@ mod_subset_ui <- function(id, allvars = allvars, alldata){
                                          # this complements the Reverse order options.
                                          column(12,
                                                 sliderInput(ns("fct_shift"), "Shift outcome levels:",
-                                                            min = 0, max = 6, value = 0, step=1,
+                                                            min = 0, max = 10, value = 0, step=1,
                                                             ticks=TRUE)
                                          )
                                        ) # end remove unknown/reverse levels/shift levels ---------

@@ -1,4 +1,4 @@
-Package: gecko_shinyviz
+Package: geckoshinyviz
 Title: Gecko Data Explorer
 Version: 0.0.0.9000
 Authors@R: person('Riinu', 'Pius', email = 'riinu.pius@ed.ac.uk', role = c('cre', 'aut'))

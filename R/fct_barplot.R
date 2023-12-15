@@ -40,7 +40,7 @@ create_barplot = function(summary_table,
     barplot_type = "stack"
   }
 
-  p = ggplot(summary_table, aes(x=expl1, fill = fct_rev(outcome), y=n))+
+  p = ggplot(summary_table, aes(x=expl1, fill = outcome, y=n))+
     geom_col(position = barplot_type) +
     # If expl2 label missing, no need to print the semicolon in the panel strip:
     facet_wrap(~paste(plot_labels$expl2, expl2, sep = if_else(plot_labels$expl2 == "", "", ": ")), ncol=1)+
@@ -70,10 +70,14 @@ create_barplot = function(summary_table,
     guides(fill = guide_legend(ncol = my_ncol, reverse = TRUE))
 
   summary_table$outcome = fct_drop(summary_table$outcome)
-  first_outcome = levels(summary_table$outcome)[1]
   
+  # get first or last label for plot
+  first_outcome = levels(summary_table$outcome)[1]
+  last_outcome = levels(summary_table$outcome) %>% tail(1)
   first_only = summary_table %>%
     filter(outcome == first_outcome)
+  last_only = summary_table %>%
+    filter(outcome == last_outcome)
   
   if (barplot_type == "fill"){
     p = p+scale_y_continuous(expand = c(0, 0), label = scales::percent, breaks = 0:5/5)
@@ -83,7 +87,7 @@ create_barplot = function(summary_table,
   }
   
   if (perc_label){
-    p = p+geom_text(data = first_only, aes(label=relative_label), y=0.01, size=6, hjust=0,
+    p = p+geom_text(data = last_only, aes(label=relative_label), y=0.01, size=6, hjust=0,
                     colour=black_white)
   }
   

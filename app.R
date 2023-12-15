@@ -4,5 +4,5 @@
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
-gecko_shinyviz::run_app() # add parameters here (if any)
+geckoshinyviz::run_app() # add parameters here (if any)
 
