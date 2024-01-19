@@ -18,6 +18,9 @@ allvars = appdata %>%
   select(vname, vfill) %$%
   setNames(as.list(vname), vfill)
 
+# set missing BDIs to No as we away 1-year results
+appdata = appdata %>% 
+  mutate(bdi_yn = if_else(bdi_yn == "Missing", "No", bdi_yn))
 
 app_server <- function( input, output, session ) {
   # List the first level callModules here
