@@ -13,14 +13,12 @@ board = board_connect()
 appdata      = pin_read(board, "rots/gecko_appdata")
 updated_date = pin_meta(board, "rots/gecko_appdata")$created
 
+
 allvars = appdata %>%
+  select(-redcap_data_access_group) %>% 
   finalfit::extract_labels() %>%
   select(vname, vfill) %$%
   setNames(as.list(vname), vfill)
-
-# set missing BDIs to No as we away 1-year results
-appdata = appdata %>% 
-  mutate(bdi_yn = if_else(bdi_yn == "Missing", "No", bdi_yn))
 
 app_server <- function( input, output, session ) {
   # List the first level callModules here
