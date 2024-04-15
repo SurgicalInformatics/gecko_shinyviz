@@ -5,7 +5,7 @@ account: rots
 server: argoshare.is.ed.ac.uk
 hostUrl: https://argoshare.is.ed.ac.uk/__api__
 appId: 639
-bundleId:
+bundleId: 3830
 url: https://argoshare.is.ed.ac.uk/gecko_shinyviz/
 asMultiple: FALSE
 asStatic: FALSE
